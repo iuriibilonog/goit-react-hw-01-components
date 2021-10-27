@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import Transaction from "./Transaction";
+import s from './Transaction.module.css';
 
 
 const TransactionList = ({ transaction }) => {
   const oneTransaction = transaction.map(({ id, type, amount, currency }) => (
-        <tr key={id}>
+        <tr className={s.tableRow} key={id}>
         <Transaction
             type={type}
             amount={amount}
@@ -14,12 +15,12 @@ const TransactionList = ({ transaction }) => {
       ))
       
   return (
-    <table className="transaction-history">
-  <thead>
+    <table className={s.transactionHistory}>
+  <thead className={s.header}>
     <tr>
-      <th>Type</th>
-      <th>Amount</th>
-      <th>Currency</th>
+      <th className={s.tableColumn}>Type</th>
+      <th className={s.tableColumn}>Amount</th>
+      <th className={s.tableColumn}>Currency</th>
     </tr>
   </thead>
 
@@ -39,7 +40,7 @@ TransactionList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
     }).isRequired
   ),
