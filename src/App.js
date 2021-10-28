@@ -1,5 +1,6 @@
 import './App.css';
-import ProfileList from './components/profile/ProfileList';
+// import ProfileList from './components/profile/ProfileList';
+import Profile from './components/Profile/Profile';
 import user from './data/user.json';
 import statisticalData from './data/statisticalData.json';
 import friends from './data/friends.json';
@@ -11,8 +12,9 @@ import transaction from './data/transactions.json';
 function App() {
   return (
     <div className="App">
-      <ProfileList user={user} />
+      <Profile user={user} />
       <Statistics title={'Upload stats'} stats={statisticalData} />
+      <Statistics stats={statisticalData} />
       <FriendsList friends={friends} />
       <TransactionList transaction={transaction} />
     </div>
